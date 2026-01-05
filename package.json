@@ -1,0 +1,42 @@
+{
+  "name": "machine-tasks-protocol",
+  "version": "1.0.0",
+  "description": "Secure, multi-layered protocol for exposing and executing machine tasks with cryptographic verification.",
+  "main": "./src/index.js",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:example": "node examples/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NjugunaKelvin/Machine-Tasks-Protocol-MTP-.git"
+  },
+  "keywords": [
+    "mtp",
+    "protocol",
+    "machine-tasks",
+    "agent",
+    "ai",
+    "crypto",
+    "verification",
+    "delegation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NjugunaKelvin/Machine-Tasks-Protocol-MTP-/issues"
+  },
+  "homepage": "https://github.com/NjugunaKelvin/Machine-Tasks-Protocol-MTP-#readme",
+  "dependencies": {
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "uuid": "^13.0.0",
+    "zod": "^4.3.5"
+  }
+}
