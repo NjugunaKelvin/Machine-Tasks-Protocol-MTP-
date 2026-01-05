@@ -10,7 +10,7 @@
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Introduction](#-introduction)
 - [Why MTP?](#-why-mtp)
@@ -30,7 +30,7 @@
 
 ---
 
-## 🚀 Introduction
+## Introduction
 
 In a world where AI agents perform critical tasks (diagnosing patients, executing trades, modifying code), the question is no longer "can we connect?" but **"can we trust?"**.
 
@@ -41,7 +41,7 @@ Standard REST APIs are great for data, but they lack inherent "contract" enforce
 
 ---
 
-## 💡 Why MTP?
+## Why MTP?
 
 | Feature | Standard API (REST/RPC) | Machine Task Protocol (MTP) |
 | :--- | :--- | :--- |
@@ -53,7 +53,7 @@ Standard REST APIs are great for data, but they lack inherent "contract" enforce
 
 ---
 
-## 🧠 Core Concepts
+## Core Concepts
 
 ### 1. Executors
 An **Executor** is any node (server, robot, AI agent) that performs work. It advertises **Capabilities**—specific skills it possesses (e.g., "SummarizeText", "ResizeImage", "CalculateRisk").
@@ -71,7 +71,7 @@ A **Requester** is a client asking for work. It generates a **Task Payload**, si
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Option A: Install via Git (Recommended for latest version)
 You can install MTP directly from GitHub to get the bleeding-edge features.
@@ -91,7 +91,7 @@ npm install
 
 ---
 
-## ⚡ Quick Start Guide
+## Quick Start Guide
 
 Let's build a secure "Math Agent" that other developers can call.
 
@@ -188,12 +188,12 @@ const isValid = userApp.verifyResult(signedResult, executorPublicKey);
 
 if (isValid) {
   if (signedResult.status === 'success') {
-    console.log("✅ Trusted Result:", signedResult.result.total);
+    console.log("Trusted Result:", signedResult.result.total);
   } else {
-    console.error("⚠️ Task Failed:", signedResult.error);
+    console.error("Task Failed:", signedResult.error);
   }
 } else {
-  console.error("🚨 SECURITY ALERT: Result signature is invalid! Possible tampering.");
+  console.error("SECURITY ALERT: Result signature is invalid! Possible tampering.");
 }
 ```
 
@@ -275,7 +275,7 @@ Low-level cryptographic primitives.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! MTP is designed to be the backbone of agent communication, and we need your help to make it stronger.
 
@@ -303,7 +303,7 @@ We welcome contributions! MTP is designed to be the backbone of agent communicat
 
 ---
 
-## 📜 License
+## License
 
 **ISC License**
 
