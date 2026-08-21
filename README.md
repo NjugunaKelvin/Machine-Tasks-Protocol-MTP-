@@ -107,7 +107,7 @@ Requester                                   Executor
 ## Installation
 
 ```bash
-npm install machine-tasks-protocol
+npm install mtp-core
 ```
 
 Requires Node.js 18 or higher. No native addons required. The core library depends only on `uuid` and `zod`.
@@ -115,8 +115,8 @@ Requires Node.js 18 or higher. No native addons required. The core library depen
 For local development or to run the examples:
 
 ```bash
-git clone https://github.com/NjugunaKelvin/Machine-Tasks-Protocol-MTP-.git
-cd Machine-Tasks-Protocol-MTP-
+git clone https://github.com/NjugunaKelvin/mtp-core-MTP-.git
+cd mtp-core-MTP-
 npm install
 ```
 
@@ -127,7 +127,7 @@ npm install
 ### 1. Set up an Executor (server side)
 
 ```javascript
-import { Executor } from 'machine-tasks-protocol';
+import { Executor } from 'mtp-core';
 import { z } from 'zod';
 
 const mathAgent = new Executor('MathWizard_v1');
@@ -179,7 +179,7 @@ app.listen(3000);
 ### 3. Set up a Requester (client side)
 
 ```javascript
-import { Requester } from 'machine-tasks-protocol';
+import { Requester } from 'mtp-core';
 
 const client = new Requester('InvoiceApp');
 
@@ -580,7 +580,7 @@ MTP fills the gap that JWT and MCP both leave open: **end-to-end cryptographic a
 Contributions are welcome. MTP is designed to be the backbone of agent communication.
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/Machine-Tasks-Protocol-MTP-.git`
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/mtp-core-MTP-.git`
 3. Create a branch: `git checkout -b feature/your-feature-name`
 4. Install dependencies: `npm install`
 5. Make your changes and run the tests: `npm test`

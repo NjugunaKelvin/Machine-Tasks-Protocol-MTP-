@@ -1,5 +1,5 @@
 {
-  "name": "machine-tasks-protocol",
+  "name": "mtp-core",
   "version": "1.0.0",
   "description": "Secure, multi-layered protocol for exposing and executing machine tasks with cryptographic verification. Designed for AI agents, microservices, and autonomous systems.",
   "main": "./src/index.js",
