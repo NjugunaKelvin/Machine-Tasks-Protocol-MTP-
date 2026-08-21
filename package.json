@@ -7,6 +7,11 @@
   "exports": {
     ".": "./src/index.js"
   },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "engines": {
     "node": ">=18.0.0"
   },
