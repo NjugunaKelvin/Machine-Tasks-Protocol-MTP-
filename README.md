@@ -2,6 +2,7 @@
 
 > The standard for authenticated, verifiable, and structured machine-to-machine task delegation.
 
+[![npm](https://img.shields.io/npm/v/mtp-core.svg)](https://www.npmjs.com/package/mtp-core)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Node.js](https://img.shields.io/badge/Node.js-v18%2B-green)](https://nodejs.org/)
 [![Status](https://img.shields.io/badge/Status-Stable-brightgreen)]()
@@ -106,6 +107,8 @@ Requester                                   Executor
 
 ## Installation
 
+**npm package:** [https://www.npmjs.com/package/mtp-core](https://www.npmjs.com/package/mtp-core)
+
 ```bash
 npm install mtp-core
 ```
@@ -115,12 +118,13 @@ Requires Node.js 18 or higher. No native addons required. The core library depen
 For local development or to run the examples:
 
 ```bash
-git clone https://github.com/NjugunaKelvin/mtp-core-MTP-.git
-cd mtp-core-MTP-
+git clone https://github.com/NjugunaKelvin/Machine-Tasks-Protocol-MTP-.git
+cd Machine-Tasks-Protocol-MTP-
 npm install
 ```
 
 ---
+
 
 ## Quick Start
 
