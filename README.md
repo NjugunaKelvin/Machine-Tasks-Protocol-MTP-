@@ -23,6 +23,7 @@ Every task in MTP is signed by the sender. Every result is signed by the executo
 - [Advanced Usage](#advanced-usage)
 - [API Reference](#api-reference)
 - [Security Model](#security-model)
+- [MTP vs JWT vs MCP](#mtp-vs-jwt-vs-mcp)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -501,7 +502,80 @@ This starts an Express server on port 3000 and immediately runs a client simulat
 
 ---
 
+## MTP vs JWT vs MCP
+
+People often ask how MTP compares to JWT and MCP (Anthropic's Model Context Protocol). The short answer is that all three exist at different layers and solve different problems. They are not competitors. Understanding where each one fits helps you decide when to use MTP.
+
+---
+
+### The one-sentence summary of each
+
+**JWT (JSON Web Token)** — A signed token that proves who a user is. Used for authentication and authorization.
+
+**MCP (Model Context Protocol)** — A protocol created by Anthropic that gives LLMs (like Claude) structured access to tools, files, and data during inference.
+
+**MTP (Machine Task Protocol)** — A protocol for delegating typed, signed tasks between any two machines or agents, with cryptographic proof on both the request and the result.
+
+---
+
+### Feature comparison
+
+| | JWT | MCP | MTP |
+| :--- | :--- | :--- | :--- |
+| **Created for** | User authentication | Giving LLMs access to tools | Machine-to-machine task delegation |
+| **Who talks to whom** | User to server | LLM host to tool server | Any machine to any machine |
+| **Is the request signed** | The token is signed, not the request body | No | Yes, the full payload is signed on every request |
+| **Is the response signed** | No | No | Yes, every result is signed by the executor |
+| **Schema enforcement** | None built in | JSON Schema on tool definitions | Zod schema validated before any handler runs |
+| **Tamper detection** | Token tamper only (not the body) | None | Full payload and result tamper detection |
+| **Replay protection** | Expiry time on the token | None | Timestamp on every task plus optional task ID tracking |
+| **Transport** | HTTP headers | stdio or HTTP/SSE | Any (HTTP, WebSocket, queues, direct call) |
+| **Works without an LLM** | Yes | No, designed for LLMs | Yes, fully general purpose |
+| **Signed audit trail** | No | No | Yes, both sides can prove what was asked and answered |
+
+---
+
+### When to use each one
+
+**Use JWT when** you need to authenticate a human user and carry their permissions across HTTP requests. This is the standard for web apps, mobile apps, and public APIs. JWT answers the question: "Is this person allowed in?"
+
+**Use MCP when** you are building an LLM-powered application and you want the model to be able to call external tools, read files, query databases, or take actions during a conversation. MCP answers the question: "What can the model see and do right now?"
+
+**Use MTP when** you have two machines (services, agents, devices) that need to delegate work to each other with cryptographic proof. MTP answers the question: "Who sent this task, who did the work, and can either side prove it in an audit?"
+
+---
+
+### They can all work together
+
+These three protocols solve problems at different layers. A production AI system might use all three at once:
+
+```
+Human User
+    │
+    │  JWT (proves the user's identity)
+    ▼
+Web API / Orchestrator
+    │
+    │  MCP (lets an LLM call tools and read context during inference)
+    ▼
+LLM (Claude, GPT, etc.)
+    │
+    │  MTP (the LLM delegates a subtask to a specialist executor)
+    ▼
+Specialist Executor (InventoryService, PaymentService, RiskEngine, etc.)
+```
+
+In this stack:
+- JWT handles "who is the human behind this request"
+- MCP handles "what context and tools does the LLM have access to"
+- MTP handles "when the LLM or orchestrator delegates work, is the delegation provably authentic and is the result provably untampered"
+
+MTP fills the gap that JWT and MCP both leave open: **end-to-end cryptographic accountability for machine-to-machine task execution**.
+
+---
+
 ## Contributing
+
 
 Contributions are welcome. MTP is designed to be the backbone of agent communication.
 
