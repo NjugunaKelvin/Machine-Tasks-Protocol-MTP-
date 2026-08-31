@@ -143,7 +143,7 @@ These are non-negotiable requirements for any pull request.
 
 - Every new feature must include tests that cover the happy path and at least one failure case
 - Every bug fix must include a test that would have caught the bug before the fix
-- Tests live in `tests/` and use Node.js's built-in `node:test` runner — no external test frameworks
+- Tests live in `tests/` and use Node.js's built-in `node:test` runner,  no external test frameworks
 
 ### JSDoc
 
@@ -160,7 +160,7 @@ Update JSDoc on any method whose signature, parameters, or return type changes. 
 
 ### Backwards Compatibility
 
-Do not change the shape of `SignedTask` or `SignedResult` objects. Field names and types are part of the public protocol contract. Consumers — including cross-language implementations — depend on them.
+Do not change the shape of `SignedTask` or `SignedResult` objects. Field names and types are part of the public protocol contract. Consumers,  including cross-language implementations,  depend on them.
 
 If a breaking change is genuinely necessary, open an issue first and discuss it before writing code.
 
